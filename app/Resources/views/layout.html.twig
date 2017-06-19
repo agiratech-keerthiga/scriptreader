@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Script Reader</title>
+    
+    {% block stylesheets %}
+        <link href="{{asset('bundles/styles/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{asset('bundles/styles/public.css')}}" rel="stylesheet">
+    {% endblock %}
+        <script src="{{asset('bundles/scripts/jquery.min.js')}}"></script>
+        <script src="{{asset('bundles/js/jquery.validate.js')}}"></script>
+        <script src="{{asset('bundles/js/public.js')}}"></script>  
+    </head>
+    <body>
+        {% include 'header.html.twig' %} 
+         <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+        
+        {% include 'footer.html.twig' %}
+    </body>
+</html>

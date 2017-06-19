@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block content %}
+
+ <div class='forgot_screen'>
+     <center><h2>Forgot Password</h2></center>
+        <form action="{{ path("fos_user_resetting_send_email") }}" method="post" class="forgot_form" novalidate="novalidate">
+            <fieldset>
+                <div class="form-group">
+                    <label for="username">EMAIL <span style="color:red;">*</span></label>
+                    <input type="text" id="username" name="_username" required="required" data-rule-required="true" data-msg-required="Required" class="form-control" placeholder="Email address" />
+                </div>
+                <center><button type="submit" id="_submit" name="_submit" value="" class="btn btn-info" />{{ 'resetting.request.submit'| trans }} </button></center>
+            </fieldset>
+        </form>
+ </div>
+{% endblock %}
+

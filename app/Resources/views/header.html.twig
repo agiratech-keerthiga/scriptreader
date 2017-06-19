@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Script Reader</a>
+    </div>
+    <ul class="nav navbar-nav">
+    {% if app.user %}
+      <li class="active"><a href="#">Dashboard</a></li>
+    {% else %}
+      <li class="active"><a href="#">Home</a></li>  
+    </ul>
+ {% endif %}
+  </div>
+   <div class="user_logged" style="float:right;display:inline">
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+        <a href="{{ path('fos_user_security_logout') }}">
+            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+        </a>
+    {% else %}
+        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+    {% endif %}
+      </div>
+  
+</nav>
